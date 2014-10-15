@@ -452,7 +452,7 @@ define(["lib/jquery", "lib/handlebars", "lib/highlight", "lib/jsonpointer", "lib
                         if(external){
                             var segments = item.split("#");
                             refs[item] = null;
-                            var p = $.get(segments[0]).then(function(content) {
+                            var p = $.ajax({ url: segments[0], cache : false }).then(function(content) {
                                 if(typeof content != "object") {
                                     try {
                                         content = JSON.parse(content);

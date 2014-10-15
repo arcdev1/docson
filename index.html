@@ -60,7 +60,7 @@
                                     typson.definitions(segments[0]).done(render);
                                 });
                             } else {
-                                $.get(segments[0])
+                                $.ajax({ url: segments[0], cache: false })
                                         .done(render)
                                         .fail(function (xhr, status, err) {
                                             error("Could not load " + segments[0] + ": " + status + " " + err);
