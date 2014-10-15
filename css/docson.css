@@ -177,6 +177,7 @@
 
 .docson .required {
     font-weight: bold;
+    color: red;
 }
 
 .docson .type-keyword {
