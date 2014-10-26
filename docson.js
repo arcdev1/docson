@@ -443,7 +443,7 @@ define(["lib/jquery", "lib/handlebars", "lib/highlight", "lib/jsonpointer", "lib
                         var external = false;
                         if((/^https?:\/\//).test(item)) {
                             external = true;
-                        } else if(item.indexOf('#') > 0){
+                        } else if(item.indexOf('#') !== 0){
                             //Turning relative refs to absolute ones
                             external = true;
                             item = baseUrl + item;
