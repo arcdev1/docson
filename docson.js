@@ -18,7 +18,7 @@ var docson = docson || {};
 
 docson.templateBaseUrl="templates";
 
-define(["lib/jquery", "lib/handlebars", "lib/highlight", "lib/jsonpointer", "lib/marked", "lib/traverse"], function(jquery, handlebars, highlight, jsonpointer, marked) {
+define(["lib/jquery", "lib/handlebars", "lib/highlight", "lib/jsonpointer", "lib/marked", "lib/traverse"], function(jquery, handlebars, highlight, jsonpointer, marked, traverse) {
 
     var ready = $.Deferred();
     var boxTemplate;
@@ -307,21 +307,15 @@ define(["lib/jquery", "lib/handlebars", "lib/highlight", "lib/jsonpointer", "lib
     });
 
     function init() {
-        $.when( $.get(docson.templateBaseUrl+"/box.html").done(function(content) {
-            source = content
-            boxTemplate = Handlebars.compile(source);
-        }), $.get(docson.templateBaseUrl+"/signature.html").done(function(content) {
-            source = content
-            signatureTemplate = Handlebars.compile(source);
-        })).always(function() {
-            ready.resolve();
-        });
+        boxTemplate = Handlebars.compile(require('./templates/box.html'));
+        signatureTemplate = Handlebars.compile(require('./templates/signature.html'));
     };
 
     docson.doc = function(element, schema, ref, baseUrl) {
         var d = $.Deferred();
         if(baseUrl === undefined) baseUrl='';
         init();
+        ready.resolve();
         ready.done(function() {
             if(typeof element == "string") {
                 element = $("#"+element);
