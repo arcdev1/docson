@@ -2,9 +2,10 @@
   "name": "docson",
   "main": "docson.js",
   "version": "0.1.0",
-  "homepage": "https://github.com/lbovet/docson",
+  "homepage": "https://github.com/fweindel/docson",
   "authors": [
-    "Laurent Bovet <laurent.bovet@windmaster.ch>"
+    "Laurent Bovet <laurent.bovet@windmaster.ch>",
+    "Frank Weindel <frank@weindel.info>"
   ],
   "description": "Documentation for your JSON types",
   "moduleType": [
